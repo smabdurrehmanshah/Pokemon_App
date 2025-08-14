@@ -136,11 +136,11 @@ img {
 @media screen and (max-width: 576px) {
   .pokemon-cards {
     grid-template-columns: repeat(1, 1fr);
-    width: 60%;
+    width: 80%;
     gap: 40px;
   }
 
   .search-input input {
-    width: 40%;
+    width: 60%;
   }
 }
