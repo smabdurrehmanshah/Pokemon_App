@@ -1,0 +1,146 @@
+h1,
+h2 {
+  text-align: center;
+  margin: 10px 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+span {
+  font-weight: bold;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.pokemon-cards {
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  gap: 40px;
+}
+
+.pokemon-card {
+  width: 100%;
+  height: 300px;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  position: relative;
+  transition: all 0.3s;
+  z-index: 0;
+}
+
+.pokemon-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  border-radius: 30% 30% 70% 30% / 30% 30% 70% 70%;
+  background-color: #ebfbf1;
+  transform: rotate(180deg);
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.pokemon-card:hover::before {
+  border-radius: 50% 50% 0 0 / 50% 50% 0 0;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.03);
+}
+
+figure {
+  /* position: absolute;
+  z-index: 1; */
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
+.pokemon-types {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & p {
+    background-color: #2ecc71;
+    color: white;
+    padding: 3px 20px;
+    border-radius: 100px;
+    font-size: 14px;
+  }
+}
+
+.grid-three-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  margin-top: 20px;
+  font-size: 12px;
+
+  & div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.search-input {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+}
+
+.search-input input {
+  border: none;
+  outline: none;
+  padding: 10px 5px;
+  width: 20%;
+  border-bottom: 2px solid rgb(19, 16, 16);
+}
+
+@media screen and (max-width: 900px) {
+  .pokemon-cards {
+    grid-template-columns: repeat(3, 1fr);
+    width: 90%;
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .pokemon-cards {
+    grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+    gap: 40px;
+  }
+
+  .search-input input {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .pokemon-cards {
+    grid-template-columns: repeat(1, 1fr);
+    width: 60%;
+    gap: 40px;
+  }
+
+  .search-input input {
+    width: 40%;
+  }
+}
