@@ -36,7 +36,7 @@ export const Pokemon = () => {
 
   const handleSearchInput = (event) => {
     setSearch(event.target.value);
-  }
+  };
 
   if (loading) {
     return (
@@ -46,13 +46,17 @@ export const Pokemon = () => {
     );
   }
 
-  if(error) {
-    return <div>
-      <h1>{error.message}</h1>
-    </div>
+  if (error) {
+    return (
+      <div>
+        <h1>{error.message}</h1>
+      </div>
+    );
   }
 
-  const searchedPokemons = pokemons.filter((currPokemon) => currPokemon.name.includes(search));
+  const searchedPokemons = pokemons.filter((currPokemon) =>
+    currPokemon.name.toLowerCase().includes(search.trim().toLowerCase())
+  );
 
   return (
     <>
@@ -61,7 +65,12 @@ export const Pokemon = () => {
       </header>
 
       <div className="search-input">
-        <input type="text" placeholder="Search Pokémon" value={search} onChange={handleSearchInput}/>
+        <input
+          type="text"
+          placeholder="Search Pokémon"
+          value={search}
+          onChange={handleSearchInput}
+        />
       </div>
 
       <ul className="pokemon-cards">
